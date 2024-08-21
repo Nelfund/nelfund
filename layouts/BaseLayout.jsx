@@ -9,7 +9,7 @@ const BaseLayout = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container md:w-[1440px] md:mt-20 mx-auto">
+      <main className="container md:w-[1200px]  md:mt-20 mx-auto">
         {children}
       </main>
     </>

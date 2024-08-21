@@ -23,8 +23,8 @@ export default function InstitutionDropdown() {
   return (
     <div className="-mt-10 mx-5 p-5 md:mt-16 bg-white rounded-m">
       <TitlePage
-        title={"Enter your Matric Number"}
-        desc={"More like your University Identification Number "}
+        title={"Enter Name of your Institution "}
+        desc={"More like your University Name"}
       />
       <div className="mt-16">
         <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">

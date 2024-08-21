@@ -6,7 +6,7 @@ const StudyLevel = () => {
       <div className="-mt-10 mx-5 p-5 md:mt-16 bg-white rounded-md">
         <TitlePage
           title={"Enter your Study level"}
-          desc={" I'm guessing it's within 100 - 500 "}
+          desc={" I'm guessing it's within 100 - 700 "}
         />
         <div className="mt-16">
           <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
