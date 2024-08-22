@@ -8,8 +8,8 @@ const Step = () => {
       <div className="h-40 bg-image flex md:flex-col md:p-8 md:m-5 items-center justify-center md:justify-start md:items-start">
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 0 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 0 && "bg-green-500 text-black"
             }`}
           >
             1
@@ -25,8 +25,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 1 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 1 && "bg-green-500 text-black"
             }`}
           >
             2
@@ -40,8 +40,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 2 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 2 && "bg-green-500 text-black"
             }`}
           >
             3
@@ -55,8 +55,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 3 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 3 && "bg-green-500 text-black"
             }`}
           >
             4
@@ -70,8 +70,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 4 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 4 && "bg-green-500 text-black"
             }`}
           >
             5
@@ -87,8 +87,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 5 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 5 && "bg-green-500 text-black"
             }`}
           >
             6
@@ -102,8 +102,8 @@ const Step = () => {
         </div>
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 6 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 6 && "bg-green-500 text-black"
             }`}
           >
             7
@@ -120,8 +120,8 @@ const Step = () => {
 
         <div className="flex md:m-4 items-center">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
-              stepNumber === 7 && "bg-zinc-200 text-black"
+            className={`flex md:h-10 md:w-10 w-5 h-5 items-center justify-center rounded-full border border-blue-100 text-white font-semibold ${
+              stepNumber === 7 && "bg-green-500 text-black"
             }`}
           >
             8
