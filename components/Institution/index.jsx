@@ -9,7 +9,8 @@ import axios from "axios";
 
 const Institution = () => {
   const [showOtherInput, setShowOtherInput] = useState(false);
-  const { userForm, addToPersonalInfo, nextStepNumber } = useUserFormStore();
+  const { userForm, addToPersonalInfo, nextStepNumber, backStepNumber } =
+    useUserFormStore();
 
   const initialValue = {
     institution: userForm.personalInfo.institution,
@@ -26,8 +27,6 @@ const Institution = () => {
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
-  const selectedInstitution = watch("institution");
-
   const handleInstitutionChange = (e) => {
     const value = e.target.value;
     if (value === "Others") {
@@ -41,32 +40,35 @@ const Institution = () => {
     "patFc8UQhpuvdfGfD.e716793c3a499c31e6a12448e214c1b49c785487855314a792416fefe0e653cd";
 
   const onSubmit = async (data) => {
+    console.log("Form data submitted in Institution step:", data);
     if (data.institution === "Others") {
       data.institution = data.otherInstitution;
     }
     addToPersonalInfo(data);
-    try {
-      await axios.post(
-        "https://api.airtable.com/v0/appJ1OADLrMNCQqE0/Table%201",
-        {
-          fields: {
-            Institution: data.institution,
-            Course: data.course,
-            Level: data.level,
-            Matric: data.matric,
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      nextStepNumber();
-    } catch (error) {
-      console.error("Error sending data to Airtable:", error);
-    }
+
+    nextStepNumber();
+    // try {
+    //   await axios.post(
+    //     "https://api.airtable.com/v0/appJ1OADLrMNCQqE0/Table%201",
+    //     {
+    //       fields: {
+    //         Institution: data.institution,
+    //         Course: data.course,
+    //         Level: data.level,
+    //         Matric: data.matric,
+    //       },
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${apiKey}`,
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    //   nextStepNumber();
+    // } catch (error) {
+    //   console.error("Error sending data to Airtable:", error);
+    // }
   };
 
   return (
@@ -159,6 +161,21 @@ const Institution = () => {
           {errors.matric && (
             <span className="text-red-500">* Matric is Required</span>
           )}
+        </div>
+
+        <div className="flex justify-between">
+          <button
+            onClick={backStepNumber}
+            className="font-bold hover:text-slate-500"
+          >
+            Go back
+          </button>
+          <button
+            className=" pointer bg-slate-900 rounded text-white font-bold p-2 hover:bg-[#483EFF] hover:text-white"
+            type="submit"
+          >
+            Confirm{" "}
+          </button>
         </div>
       </form>
     </div>

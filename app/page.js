@@ -5,12 +5,13 @@ import YourInfo from "../components/YourInfo";
 import Telephone from "../components/Institution";
 import Contact from "@/components/Contact";
 import Final from "../components/Final";
-import FooterNav from "../components/FooterNav";
+
 import BaseLayout from "../layouts/BaseLayout";
 import { useUserFormStore } from "@/stores/useUserStore";
 
 export default function Home() {
   const { stepNumber } = useUserFormStore();
+
   return (
     <BaseLayout title={"Nelfund Form "}>
       <div className="mx-auto md:max-w-5xl md:flex md:bg-white md:shadow-md md:rounded-xl">
@@ -29,8 +30,6 @@ export default function Home() {
           {stepNumber === 6 && <StudyLevel />}
           {stepNumber === 7 && <Matric />}
           {stepNumber === 8 && <Final />} */}
-
-          <FooterNav />
         </div>
       </div>
     </BaseLayout>
