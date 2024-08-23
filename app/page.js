@@ -2,17 +2,12 @@
 
 import Step from "../components/Step";
 import YourInfo from "../components/YourInfo";
-import Location from "../components/Location";
-import Telephone from "../components/Telephone";
-import Institution from "../components/Institution";
-import Email from "@/components/Email";
+import Telephone from "../components/Institution";
+import Contact from "@/components/Contact";
 import Final from "../components/Final";
 import FooterNav from "../components/FooterNav";
 import BaseLayout from "../layouts/BaseLayout";
 import { useUserFormStore } from "@/stores/useUserStore";
-import StudyLevel from "@/components/Studylevel";
-import Course from "@/components/Course";
-import Matric from "../components/Matric";
 
 export default function Home() {
   const { stepNumber } = useUserFormStore();
@@ -24,14 +19,16 @@ export default function Home() {
         </div>
         <div id="content" className=" md:w-3/4">
           {stepNumber === 0 && <YourInfo />}
-          {stepNumber === 1 && <Location />}
+          {stepNumber === 1 && <Contact />}
           {stepNumber === 2 && <Telephone />}
-          {stepNumber === 3 && <Email />}
+          {stepNumber === 3 && <Final />}
+
+          {/* {stepNumber === 3 && <Email />}
           {stepNumber === 4 && <Institution />}
           {stepNumber === 5 && <Course />}
           {stepNumber === 6 && <StudyLevel />}
           {stepNumber === 7 && <Matric />}
-          {stepNumber === 8 && <Final />}
+          {stepNumber === 8 && <Final />} */}
 
           <FooterNav />
         </div>

@@ -8,7 +8,7 @@ const FooterNav = () => {
   };
   return (
     <>
-      {stepNumber >= 8 ? (
+      {stepNumber >= 3 ? (
         ""
       ) : (
         <div className="w-full fixed bottom-0 sm:relative">
@@ -32,7 +32,7 @@ const FooterNav = () => {
                 onClick={nextStep}
                 className="bg-slate-900 rounded text-white font-bold p-2 hover:bg-[#483EFF] hover:text-white"
               >
-                {stepNumber === 7 ? "Confirm" : "Next step"}
+                {stepNumber === 2 ? "Confirm" : "Next step"}
               </button>
             )}
           </div>
