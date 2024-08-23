@@ -160,13 +160,6 @@ const Institution = () => {
             <span className="text-red-500">* Matric is Required</span>
           )}
         </div>
-
-        <button
-          type="submit"
-          className="block w-full px-6 py-3 mt-6 text-white bg-indigo-600 rounded-md"
-        >
-          Next
-        </button>
       </form>
     </div>
   );
