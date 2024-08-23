@@ -11,7 +11,7 @@ const FooterNav = () => {
       {stepNumber >= 3 ? (
         ""
       ) : (
-        <div className="w-full fixed bottom-0 sm:relative">
+        <div className="w-full ">
           <div
             className={`flex ${
               stepNumber === 0 ? "justify-end" : "justify-between"
