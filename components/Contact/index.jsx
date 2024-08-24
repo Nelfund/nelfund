@@ -8,7 +8,7 @@ const Contact = () => {
     useUserFormStore();
   const initialValue = {
     email: userForm.personalInfo.email,
-    phone_number: userForm.personalInfo.phone_number,
+    number: userForm.personalInfo.number,
   };
 
   const {
@@ -19,32 +19,34 @@ const Contact = () => {
 
   const apiKey =
     "patFc8UQhpuvdfGfD.e716793c3a499c31e6a12448e214c1b49c785487855314a792416fefe0e653cd";
+  const baseId = "appJ1OADLrMNCQqE0";
+  const tableName = "results";
 
   const onSubmit = async (data) => {
     console.log("Form data submitted:", data);
     addToPersonalInfo(data);
-    nextStepNumber();
 
-    // try {
-    //   await axios.post(
-    //     "https://api.airtable.com/v0/appJ1OADLrMNCQqE0/Table%201",
-    //     {
-    //       fields: {
-    //         Name: data.name,
-    //         Location: data.location,
-    //       },
-    //     },
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${apiKey}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   nextStepNumber();
-    // } catch (error) {
-    //   console.error("Error sending data to Airtable:", error);
-    // }
+    try {
+      const response = await axios.post(
+        `https://api.airtable.com/v0/${baseId}/${tableName}`,
+        {
+          fields: {
+            email: data.email,
+            number: data.number,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Data sent to Airtable:", response.data);
+      nextStepNumber();
+    } catch (error) {
+      console.error("Error sending data to Airtable:", error);
+    }
   };
 
   return (
@@ -79,7 +81,7 @@ const Contact = () => {
             className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
             type="number"
             placeholder="Phone no."
-            {...register("phone_number", { required: true, maxLength: 80 })}
+            {...register("number", { required: true, maxLength: 80 })}
           />
           {errors.phone_number && (
             <span className="text-rose-500 text-xs font-semibold">

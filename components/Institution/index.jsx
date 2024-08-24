@@ -14,7 +14,7 @@ const Institution = () => {
 
   const initialValue = {
     institution: userForm.personalInfo.institution,
-    otherInstitution: userForm.personalInfo.otherInstitution,
+    others: userForm.personalInfo.others,
     course: userForm.personalInfo.course,
     level: userForm.personalInfo.level,
     matric: userForm.personalInfo.matric,
@@ -23,7 +23,6 @@ const Institution = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
@@ -38,37 +37,40 @@ const Institution = () => {
 
   const apiKey =
     "patFc8UQhpuvdfGfD.e716793c3a499c31e6a12448e214c1b49c785487855314a792416fefe0e653cd";
+  const baseId = "appJ1OADLrMNCQqE0";
+  const tableName = "results";
 
   const onSubmit = async (data) => {
     console.log("Form data submitted in Institution step:", data);
     if (data.institution === "Others") {
-      data.institution = data.otherInstitution;
+      data.institution = data.others;
     }
     addToPersonalInfo(data);
 
-    nextStepNumber();
-    // try {
-    //   await axios.post(
-    //     "https://api.airtable.com/v0/appJ1OADLrMNCQqE0/Table%201",
-    //     {
-    //       fields: {
-    //         Institution: data.institution,
-    //         Course: data.course,
-    //         Level: data.level,
-    //         Matric: data.matric,
-    //       },
-    //     },
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${apiKey}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   nextStepNumber();
-    // } catch (error) {
-    //   console.error("Error sending data to Airtable:", error);
-    // }
+    try {
+      const response = await axios.post(
+        `https://api.airtable.com/v0/${baseId}/${tableName}`,
+        {
+          fields: {
+            institution: data.institution,
+            others: data.others,
+            course: data.course,
+            level: data.level,
+            matric: data.matric,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Data sent to Airtable:", response.data);
+      nextStepNumber();
+    } catch (error) {
+      console.error("Error sending data to Airtable:", error);
+    }
   };
 
   return (
@@ -108,11 +110,11 @@ const Institution = () => {
             </label>
             <input
               type="text"
-              {...register("otherInstitution", { required: true })}
+              {...register("others", { required: true })}
               className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
               placeholder="Enter your institution"
             />
-            {errors.otherInstitution && (
+            {errors.others && (
               <span className="text-red-500">* Institution is Required</span>
             )}
           </div>
