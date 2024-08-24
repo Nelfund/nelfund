@@ -89,7 +89,7 @@ const Institution = () => {
             required: "Institution is required",
           })}
           onChange={handleInstitutionChange}
-          className="mt-1 h-16 block w-full pl-3 pr-10 py-5 pt-4 bg-white text-base border-2 border-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          className="mt-1 h-16 block w-full pl-3 pr-10 py-5 pt-4 bg-white text-base border-2 border-gray-300 focus:border-black focus:outline-none sm:text-sm rounded-md"
         >
           <option value="">Select an institution</option>
           {institutions.map((institution) => (
