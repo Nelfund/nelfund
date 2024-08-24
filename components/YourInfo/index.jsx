@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import TitlePage from "../../layouts/TitlePage";
 import axios from "axios";
 import { states } from "@/utils/states.js";
+import Image from "next/image.js";
+import nelfund from "@/public/assets/nelfund.png";
 
 const YourInfo = () => {
   const { userForm, addToPersonalInfo, nextStepNumber } = useUserFormStore();
@@ -51,17 +53,21 @@ const YourInfo = () => {
 
   return (
     <div className="-mt-10 mx-5 p-5 md:p-0 md:mt-20 bg-white rounded-md">
+      <div className=" pb-5">
+        <Image src={nelfund} alt="" width={120} height={120} />
+      </div>
       <TitlePage
         title={"Let's Start With Your Name and Location "}
         desc={"Please provide your name and select your location."}
       />
+
       <form onSubmit={handleSubmit(onSubmit)} className="mt-16 space-y-8">
         <div>
           <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
             Full Name
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="text"
             placeholder="Adesanya Grace"
             {...register("name", { required: true, maxLength: 80 })}
@@ -75,10 +81,10 @@ const YourInfo = () => {
 
         <div className="mt-10">
           <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
-            State
+            State Of Origin
           </label>
           <select
-            className="block w-full px-4 py-4 h-16 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 h-16 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             {...register("location", { required: true })}
           >
             <option value="" disabled selected>
@@ -92,14 +98,14 @@ const YourInfo = () => {
           </select>
           {errors.location && (
             <span className="text-rose-500 text-xs font-semibold">
-              * Location is required
+              * State Of Origin is required
             </span>
           )}
         </div>
 
         <div className="flex justify-end">
           <button
-            className="pointer bg-slate-900 rounded text-white font-bold p-2 hover:bg-[#483EFF] hover:text-white"
+            className="pointer bg-green-800 rounded text-white font-bold p-2 hover:bg-green-600 hover:text-white"
             type="submit"
           >
             Next step{" "}

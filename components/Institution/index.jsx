@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { institutions } from "@/utils/institutions";
 import { useUserFormStore } from "../../stores/useUserStore.js";
 import axios from "axios";
+import Image from "next/image";
+import nelfund from "@/public/assets/nelfund.png";
 
 const Institution = () => {
   const [showOtherInput, setShowOtherInput] = useState(false);
@@ -57,6 +59,7 @@ const Institution = () => {
             course: data.course,
             level: data.level,
             matric: data.matric,
+            jamb: data.jamb,
           },
         },
         {
@@ -74,22 +77,25 @@ const Institution = () => {
   };
 
   return (
-    <div className="-mt-10 mx-5 p-5 md:mt-8 bg-white rounded-md">
+    <div className="-mt-10 mx-5 p-5 pt-0 md:mt-8 bg-white rounded-md">
+      <div className=" pb-5">
+        <Image src={nelfund} alt="" width={120} height={120} />
+      </div>
       <TitlePage
         title={"Institution Details"}
         desc={"More like University bio"}
       />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-16 space-y-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-1 space-y-8">
         <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
-          Choose Your Institution
+          Select Your Institution
         </label>
         <select
           {...register("institution", {
             required: "Institution is required",
           })}
           onChange={handleInstitutionChange}
-          className="mt-1 h-16 block w-full pl-3 pr-10 py-5 pt-4 bg-white text-base border-2 border-gray-300 focus:border-black focus:outline-none sm:text-sm rounded-md"
+          className="mt-1 h-16 block w-full pl-3 pr-10 py-5 pt-4 bg-white text-base border border-green-600 focus:border-green-800 focus:outline-none sm:text-sm rounded-md"
         >
           <option value="">Select an institution</option>
           {institutions.map((institution) => (
@@ -111,7 +117,7 @@ const Institution = () => {
             <input
               type="text"
               {...register("others", { required: true })}
-              className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+              className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
               placeholder="Enter your institution"
             />
             {errors.others && (
@@ -125,7 +131,7 @@ const Institution = () => {
             Course of Study
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="text"
             placeholder="Course of Study"
             {...register("course", { required: true })}
@@ -140,7 +146,7 @@ const Institution = () => {
             Study level
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="number"
             placeholder="Study Level"
             {...register("level", { required: true })}
@@ -155,13 +161,28 @@ const Institution = () => {
             Matric. Number
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="number"
             placeholder="Matric No."
             {...register("matric", { required: true })}
           />
           {errors.matric && (
             <span className="text-red-500">* Matric is Required</span>
+          )}
+        </div>
+
+        <div className="mt-16">
+          <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
+            JAMB Number
+          </label>
+          <input
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
+            type="number"
+            placeholder="JAMB Number"
+            {...register("jamb", { required: true })}
+          />
+          {errors.jamb && (
+            <span className="text-red-500">* JAMB No. is Required</span>
           )}
         </div>
 
@@ -173,7 +194,7 @@ const Institution = () => {
             Go back
           </button>
           <button
-            className=" pointer bg-slate-900 rounded text-white font-bold p-2 hover:bg-[#483EFF] hover:text-white"
+            className=" pointer bg-green-800 rounded text-white font-bold p-2 hover:bg-green-600 hover:text-white"
             type="submit"
           >
             Confirm{" "}

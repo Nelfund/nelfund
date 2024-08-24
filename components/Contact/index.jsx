@@ -2,6 +2,8 @@ import { useUserFormStore } from "../../stores/useUserStore.js";
 import { useForm } from "react-hook-form";
 import TitlePage from "../../layouts/TitlePage";
 import axios from "axios";
+import Image from "next/image.js";
+import nelfund from "@/public/assets/nelfund.png";
 
 const Contact = () => {
   const { userForm, addToPersonalInfo, nextStepNumber, backStepNumber } =
@@ -51,6 +53,9 @@ const Contact = () => {
 
   return (
     <div className="-mt-10 mx-5 p-5 md:p-0 md:mt-20 bg-white rounded-md">
+      <div className=" pb-5">
+        <Image src={nelfund} alt="" width={120} height={120} />
+      </div>
       <TitlePage
         title={" Enter Your Email and Phone Number "}
         desc={"so we can send you updates`"}
@@ -61,7 +66,7 @@ const Contact = () => {
             Email
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="email"
             placeholder="Email Address"
             {...register("email", { required: true })}
@@ -78,7 +83,7 @@ const Contact = () => {
             Phone Number
           </label>
           <input
-            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+            className="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-green-600 rounded-md focus:outline-none focus:border-green-800"
             type="number"
             placeholder="Phone no."
             {...register("number", { required: true, maxLength: 80 })}
@@ -99,7 +104,7 @@ const Contact = () => {
           </button>
 
           <button
-            className=" pointer bg-slate-900 rounded text-white font-bold p-2 hover:bg-[#483EFF] hover:text-white"
+            className=" pointer bg-green-800 rounded text-white font-bold p-2 hover:bg-green-600 hover:text-white"
             type="submit"
           >
             Next step{" "}

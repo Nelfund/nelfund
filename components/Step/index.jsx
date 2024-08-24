@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { useUserFormStore } from "../../stores/useUserStore";
+import nelfund from "@/public/assets/nelfund.png";
 
 const Step = () => {
   const { stepNumber } = useUserFormStore();

@@ -14,11 +14,11 @@ export default function Home() {
 
   return (
     <BaseLayout title={"Nelfund Form "}>
-      <div className="mx-auto md:max-w-5xl md:flex md:bg-white md:shadow-md md:rounded-xl">
+      <div className="mx-auto md:max-w-5xl md:flex md:bg-white md:shadow-md md:rounded-xl ">
         <div id="sidebar-left">
           <Step />
         </div>
-        <div id="content" className=" md:w-3/4">
+        <div id="content" className=" md:w-3/4 ">
           {stepNumber === 0 && <YourInfo />}
           {stepNumber === 1 && <Contact />}
           {stepNumber === 2 && <Telephone />}

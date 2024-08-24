@@ -8,7 +8,8 @@ body {
 
 @media (min-width: 768px) {
   .bg-image {
-    background-image: url(/assets/bg-sidebar-desktop.svg);
+    background-image: url(/assets/bg-2.svg);
+    background-color: green;
     background-size: cover;
     background-position: center;
     width: 300px;
@@ -19,7 +20,8 @@ body {
 }
 @media (max-width: 768px) {
   .bg-image {
-    background-image: url(/assets/bg-sidebar-mobile.svg);
+    background-image: url(/assets/bg-1.svg);
+    background-color: green;
     background-size: cover;
     width: 100%;
     
