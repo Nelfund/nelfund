@@ -81,7 +81,7 @@ const Institution = () => {
       />
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-16 space-y-8">
-        <label className="absolute px-2 ml-2 -mt-5 font-medium text-gray-600 bg-white">
+        <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
           Choose Your Institution
         </label>
         <select
@@ -89,7 +89,7 @@ const Institution = () => {
             required: "Institution is required",
           })}
           onChange={handleInstitutionChange}
-          className="mt-1 h-10 block w-full pl-3 pr-10 py-5 pt-4 text-base border-2 border-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          className="mt-1 h-16 block w-full pl-3 pr-10 py-5 pt-4 bg-white text-base border-2 border-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         >
           <option value="">Select an institution</option>
           {institutions.map((institution) => (
