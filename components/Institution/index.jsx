@@ -81,7 +81,7 @@ const Institution = () => {
       />
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-16 space-y-8">
-        <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
+        <label className="absolute px-2 ml-2 -mt-5 font-medium text-gray-600 bg-white">
           Choose Your Institution
         </label>
         <select
