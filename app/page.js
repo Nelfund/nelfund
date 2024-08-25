@@ -18,7 +18,7 @@ export default function Home() {
         <div id="sidebar-left">
           <Step />
         </div>
-        <div id="content" className=" md:w-3/4 ">
+        <div id="content" className=" md:w-3/4">
           {stepNumber === 0 && <YourInfo />}
           {stepNumber === 1 && <Contact />}
           {stepNumber === 2 && <Telephone />}

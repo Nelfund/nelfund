@@ -19,36 +19,36 @@ const Contact = () => {
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
-  const apiKey =
-    "patFc8UQhpuvdfGfD.e716793c3a499c31e6a12448e214c1b49c785487855314a792416fefe0e653cd";
-  const baseId = "appJ1OADLrMNCQqE0";
-  const tableName = "results";
+  // const apiKey =
+  //   "patFc8UQhpuvdfGfD.e716793c3a499c31e6a12448e214c1b49c785487855314a792416fefe0e653cd";
+  // const baseId = "appJ1OADLrMNCQqE0";
+  // const tableName = "results";
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     console.log("Form data submitted:", data);
     addToPersonalInfo(data);
 
-    try {
-      const response = await axios.post(
-        `https://api.airtable.com/v0/${baseId}/${tableName}`,
-        {
-          fields: {
-            email: data.email,
-            number: data.number,
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log("Data sent to Airtable:", response.data);
-      nextStepNumber();
-    } catch (error) {
-      console.error("Error sending data to Airtable:", error);
-    }
+    // try {
+    //   const response = await axios.post(
+    //     `https://api.airtable.com/v0/${baseId}/${tableName}`,
+    //     {
+    //       fields: {
+    //         email: data.email,
+    //         number: data.number,
+    //       },
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${apiKey}`,
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    //   console.log("Data sent to Airtable:", response.data);
+    nextStepNumber();
+    // } catch (error) {
+    //   console.error("Error sending data to Airtable:", error);
+    // }
   };
 
   return (
@@ -88,7 +88,7 @@ const Contact = () => {
             placeholder="Phone no."
             {...register("number", { required: true, maxLength: 80 })}
           />
-          {errors.phone_number && (
+          {errors.number && (
             <span className="text-rose-500 text-xs font-semibold">
               * phone number is required
             </span>

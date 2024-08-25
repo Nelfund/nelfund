@@ -15,6 +15,10 @@ const Institution = () => {
     useUserFormStore();
 
   const initialValue = {
+    name: userForm.personalInfo.name,
+    location: userForm.personalInfo.location,
+    email: userForm.personalInfo.email,
+    number: userForm.personalInfo.number,
     institution: userForm.personalInfo.institution,
     others: userForm.personalInfo.others,
     course: userForm.personalInfo.course,
@@ -49,18 +53,16 @@ const Institution = () => {
     }
     addToPersonalInfo(data);
 
+    const finalData = {
+      ...userForm.personalInfo,
+      ...data,
+    };
+
     try {
       const response = await axios.post(
         `https://api.airtable.com/v0/${baseId}/${tableName}`,
         {
-          fields: {
-            institution: data.institution,
-            others: data.others,
-            course: data.course,
-            level: data.level,
-            matric: data.matric,
-            jamb: data.jamb,
-          },
+          fields: finalData,
         },
         {
           headers: {
